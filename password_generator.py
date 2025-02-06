@@ -16,18 +16,25 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
             for _ in range(length):
                 password += secrets.choice(all_characters)
             constraints = [
-                 (nums, r'[0-9]'),
+                 (nums, r'\d'),
                  (lowercase, r'[a-z]'),
                  (uppercase, r'[A-Z]')
-                 (special_chars, r'')
+                 (special_chars, rf'[{symbols}]')
+
 
             ]
-            return password
+            # Check if password meets constraints
+            count = 0
+            for constraint, pattern in constraints:
+               if constraint <= len(re.findall(pattern, password)):
+                count+=1
+            if count == 4:
+                break
+
+    return password
             
         # new_password = generate_password(8)
         # print(new_password)
-pattern = r'[^A-Za-z0-7]'
-quote = 'Not all those who wan8der lost.'
-print(re.findall(pattern, quote))
+
     
     
