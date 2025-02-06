@@ -16,13 +16,18 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
             for _ in range(length):
                 password += secrets.choice(all_characters)
             constraints = [
-                 (nums, '')
+                 (nums, r'[0-9]'),
+                 (lowercase, r'[a-z]'),
+                 (uppercase, r'[A-Z]')
+                 (special_chars, r'')
+
             ]
             return password
+            
         # new_password = generate_password(8)
         # print(new_password)
-pattern = re.compile('i')
-quote = 'Not all those who wander lost'
-print(pattern.search(quote))
+pattern = r'[^A-Za-z0-7]'
+quote = 'Not all those who wan8der lost.'
+print(re.findall(pattern, quote))
     
     
