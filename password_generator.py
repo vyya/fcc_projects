@@ -32,7 +32,7 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
                 break
     return password
             
-new_password = generate_password(8,1,1,1,1)
+new_password = generate_password(nums=1,length=8, special_chars=1,uppercase=1,lowercase=1)
 print(new_password)
 
     
