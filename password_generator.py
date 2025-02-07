@@ -9,7 +9,7 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
     symbols = string.punctuation
     # combine all the variables into one list
     all_characters = letters + digits + symbols
-    print("All characters:", all_characters)
+    #print("All characters:", all_characters)
     while True:
             password = ''
             # Generate password
@@ -18,23 +18,22 @@ def generate_password(length, nums, special_chars, uppercase, lowercase):
             constraints = [
                  (nums, r'\d'),
                  (lowercase, r'[a-z]'),
-                 (uppercase, r'[A-Z]')
+                 (uppercase, r'[A-Z]'),
                  (special_chars, rf'[{symbols}]')
 
 
             ]
             # Check if password meets constraints
-            count = 0
-            for constraint, pattern in constraints:
-               if constraint <= len(re.findall(pattern, password)):
-                count+=1
-            if count == 4:
+            
+            if all(
+                     constraint<=len(re.findall(pattern, password))
+                     for constraint, pattern in constraints
+            ):
                 break
-
     return password
             
-        # new_password = generate_password(8)
-        # print(new_password)
+new_password = generate_password(8,1,1,1,1)
+print(new_password)
 
     
     
