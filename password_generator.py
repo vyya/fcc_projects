@@ -3,7 +3,7 @@ import string
 import secrets
 
 # Define function "generate_password"
-def generate_password(length, nums, special_chars, uppercase, lowercase):
+def generate_password(length=16, nums=1, special_chars=1, uppercase=1, lowercase=1):
     letters = string.ascii_letters
     digits = string.digits
     symbols = string.punctuation
