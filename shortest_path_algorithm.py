@@ -9,5 +9,10 @@ def shortest_path(graph, start):
     paths = {key: [] for key in graph}
     # Add the starting point to the paths dictionary
     paths[start].append(start)
+    #
+    while unvisited != []:
+        current = min(unvisited, key = distances.get)
+        for unvisited, key in graph[current]:
+            pass
     print(f'Unvisited: {unvisited}\nDistances: {distances}\nPaths: {paths}')
-shortest_path(my_graph, 'A')
+# shortest_path(my_graph, 'A')
